@@ -1,4 +1,5 @@
 ActiveAdmin.register Card do
+  permit_params :content, :name, :deck_id
 
 
   # See permitted parameters documentation:
