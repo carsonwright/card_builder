@@ -1,4 +1,5 @@
 ActiveAdmin.register Deck do
+  permit_params :name, :styling, :fields
 
 
   # See permitted parameters documentation:
