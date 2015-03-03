@@ -1,29 +1,28 @@
-<%= form_for(@deck) do |f| %>
-  <% if @deck.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@deck.errors.count, "error") %> prohibited this deck from being saved:</h2>
-
-      <ul>
-      <% @deck.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @deck, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :styling, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :styling, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fields, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :fields, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :styling %><br>
-    <%= f.text_area :styling %>
-  </div>
-  <div class="field">
-    <%= f.label :fields %><br>
-    <%= f.text_field :fields %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  decks_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
